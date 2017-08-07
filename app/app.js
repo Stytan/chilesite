@@ -1,7 +1,8 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+var App = angular.module('myApp', [
+  'angular-md5',
   'ngRoute',
   'myApp.view1',
   'myApp.view2',
@@ -12,3 +13,13 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
+App.controller("AppController", function($scope) {
+	$scope.mes = "Message";
+	$scope.goLogin = function(login, psw) {
+		$scope.mes = "You logged in as ";
+		if(login != "" && psw != "")
+		{
+			$scope.mes = "You logged in as ";//+login+md5.createHash(psw);
+		}
+	}
+}
