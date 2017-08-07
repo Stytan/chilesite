@@ -11,20 +11,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
-  </ul>
+<body ng-controller="AppController">
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div ng-view></div>
+    <div class="backgr">
+    <div class="form-inline backgr">
+	  <div class="col-sm-6"></div>
+	  <div class="form-group col-sm-2">
+		<input class="form-control" ng-model="login" placeholder="Login" />
+	  </div>
+	  <div class="form-group col-sm-2">
+		<input class="form-control" type="password" ng-model="psw" placeholder="Password" />
+	  </div>
+	  <div class="form-group col-sm-2">
+	    <button class="btn btn-default" ng-click="goLogin(login, psw)">Log on</button>
+	  </div>
+	</div>
+	<div class="alert alert-info" ng-model="mes"></div>
+    </div>
+  <div ng-view>
+  </div>
 
   <div>Angular seed app: v<span app-version></span></div>
 
